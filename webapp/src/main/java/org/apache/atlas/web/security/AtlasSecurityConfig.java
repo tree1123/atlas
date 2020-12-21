@@ -186,7 +186,7 @@ public class AtlasSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .authorizeRequests().anyRequest().authenticated()
                 .and()
-                    .headers()
+                    .headers().headers().frameOptions().disable()
                 .addHeaderWriter(new StaticHeadersWriter(HeadersUtil.CONTENT_SEC_POLICY_KEY, HeadersUtil.headerMap.get(HeadersUtil.CONTENT_SEC_POLICY_KEY)))
                 .addHeaderWriter(new StaticHeadersWriter(SERVER_KEY, HeadersUtil.headerMap.get(SERVER_KEY)))
                         .and()
